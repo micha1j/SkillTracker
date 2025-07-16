@@ -277,9 +277,10 @@ namespace SkillTrainer
         static void Main(string[] args)
         {
             Console.WriteLine("Witam w SkillTrainer");
+            using var context = new AppDbContext();
+            context.Database.Migrate();
             while (true)
             {
-                using var context = new AppDbContext();
                 Console.WriteLine(" 1) przegląd i edycja danych 2) dodanie nowych danych");
                 string wyb = Console.ReadLine();
                 if (wyb == "1")
